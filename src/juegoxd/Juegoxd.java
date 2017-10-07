@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author Usuario
+ * @Camilo Rodríguez
  */
 public class Juegoxd {
 

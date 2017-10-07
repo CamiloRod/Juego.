@@ -8,8 +8,7 @@ package juegoxd;
 
 /**
  *
- * @author José Guillermo Forero Suarez 1018505528
- * @since 9.2.17
+ * @CamiloRodríguez
  */
 public class Limite extends Espacio{
 

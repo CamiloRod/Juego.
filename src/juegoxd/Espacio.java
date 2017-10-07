@@ -8,8 +8,8 @@ package juegoxd;
 
 /**
  *
- * @author José Guillermo Forero Suarez 1018505528
- * @since 9.2.17
+ * @Camilo Rodríguez 
+ * 
  */
 public abstract class Espacio {
     public abstract char decir();
