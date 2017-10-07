@@ -20,10 +20,12 @@ public class Juegoxd {
         Scanner leer=new Scanner(System.in);
         int x=leer.nextInt();
         int y=leer.nextInt();
-        int armas=leer.nextInt();
+        int armaD=leer.nextInt();
+        int armaC=leer.nextInt();
         int vidas=leer.nextInt();
         int jugadores=leer.nextInt();
-        Mapa map=new Mapa(x, y, armas, vidas, jugadores);
+        int refugio=leer.nextInt();
+        Mapa map=new Mapa(x, y, armaD, armaC, vidas, refugio, jugadores);
         char[][] mas=map.retornarMatriz();
         for (int i = 0; i < map.alto; i++) {
             for (int j = 0; j < map.ancho; j++) {

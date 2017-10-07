@@ -37,3 +37,4 @@ nbproject/
 *.jar
 *.war
 *.ear
+/dist/

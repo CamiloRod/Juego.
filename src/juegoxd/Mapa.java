@@ -16,23 +16,33 @@ public class Mapa {
     char[][] matriz;
     int alto;
     int ancho;
-    int armas;
+    int armaD;
+    int armaC;
     int vida;
     int jugadores;
-    Arma claseArma;
+    int refugio;
+    ArmaD claseArmaD;
+    ArmaC claseArmaC;
     Limite claseLimite;
     Vida claseVida;
     Vacio claseVacio;
-    public Mapa(int x, int y, int armas, int vida, int jugadores) {
+    Refugio claseRefugio;
+    Jugadores claseJugadores;
+    public Mapa(int x, int y, int armaD,int armaC,int refugio, int vida, int jugadores) {
         alto=x;
         ancho=y;
         this.jugadores=jugadores;
         claseVacio=new Vacio();
-        claseArma=new Arma();
+        claseArmaD=new ArmaD();
+        claseArmaC=new ArmaC();
         claseLimite=new Limite();
         claseVida=new Vida();
-        this.armas=armas;
+        claseRefugio=new Refugio();
+        claseJugadores=new Jugadores();
+        this.armaD=armaD;
+        this.armaC=armaC;
         this.vida=vida;
+        this.refugio=refugio;
         matriz=new char[x][y];
         for (int i = 0; i < alto; i++) {
             for (int j = 0; j < ancho; j++) {
@@ -46,12 +56,12 @@ public class Mapa {
             }
         }
         Random var=new Random();
-        for (int i = 0; i < this.armas; i++) {
+        for (int i = 0; i < this.armaD; i++) {
             
             int dato1=var.nextInt(alto-1);
             int dato2=var.nextInt(ancho-1);
             if(isVacio(dato1, dato2)){
-                matriz[dato1][dato2]=claseArma.decir();
+                matriz[dato1][dato2]=claseArmaD.decir();
             }
             else{
                 i--;
@@ -72,15 +82,45 @@ public class Mapa {
         }
        
         for (int i = 1; i < this.jugadores+1; i++) {
-            
+      
             int dato1=var.nextInt(alto-1);
             int dato2=var.nextInt(ancho-1);
             if(isVacio(dato1, dato2)){
+                if(i%2==0){
                 matriz[dato1][dato2]= String.valueOf(i).charAt(0);
+             }else{
+                    matriz[dato1][dato2]= claseJugadores.decir();
+                }
             }
             else{
                 i--;
             }
+        }
+          Random vari=new Random();
+        for (int i = 0; i < this.refugio; i++) {
+            
+            int dato1=vari.nextInt(alto-1);
+            int dato2=vari.nextInt(ancho-1);
+            if(isVacio(dato1, dato2)){
+                matriz[dato1][dato2]=claseRefugio.decir();
+            }
+            else{
+                i--;
+            }
+            
+        }
+        Random va=new Random();
+        for (int i = 0; i < this.armaC; i++) {
+            
+            int dato1=va.nextInt(alto-1);
+            int dato2=va.nextInt(ancho-1);
+            if(isVacio(dato1, dato2)){
+                matriz[dato1][dato2]=claseArmaC.decir();
+            }
+            else{
+                i--;
+            }
+            
         }
         
     }
@@ -92,8 +132,14 @@ public class Mapa {
             return false;
         }
     }
+    
+   
+        
+     
     public char[][] retornarMatriz(){
     
     
     return matriz;}    
+  
+        
 }
